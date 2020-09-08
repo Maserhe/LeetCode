@@ -5,54 +5,25 @@
  */
 
 // @lc code=start
-#include<vector>
-#include<string>
-#include<iostream>
-using namespace std;
-const int N= 10000;
-
 
 
 class Solution {
 public:
-    int son[N][26],cnt[N],idx =0;
-    
     string longestCommonPrefix(vector<string>& strs) {
+        if (strs.empty()) return "";
         
-        for( auto s : strs) insert(s);
-        int sum = query(strs.size());
-        char answer[20] = "";
-        for(int i = 0 ; i < sum ;  i ++ ){
-            answer[i]=strs[0][i];
+        string res = "";
+        for (int j = 0; j < strs[0].size(); ++j) {//j遍历字符串集中的每个字符串
+            char c = strs[0][j];
+            for (int i = 1; i < strs.size(); ++i) {//i遍历搜索字符串中的字符          //每次取出第一个字符串的某一个位置的单词，然后遍历其他所有字符串的对应位置看是否相等，如果有不满足的直接返回res
+
+                if (j >= strs[i].size() || strs[i][j] != c) {
+                    return res;
+                }
+            }
+            res.push_back(c);//如果都相同，则将当前字符存入结果，继续检查下一个位置的字符
         }
-        return answer;
-    }
-    void insert(string s){
-
-        int p = 0;
-     
-        
-        for( int i = 0 ; i < s.size() ; i ++ ) 
-        {
-            int u  = s[i] - 'a';
-            if(!son[p][u]) son[p][u] = ++idx;
-
-            p= son[p][u];
-
-        
-            cout<<p<<endl;
-            cnt[p]+=1;
-            cout<<cnt[p]<<endl;
-
-        }
-    }
-    int  query(int x){
-        int p = 1;
-        while(cnt[p]==x){
-            p++;
-        }
-
-        return p-1;
+        return res;
     }
 };
 // @lc code=end
