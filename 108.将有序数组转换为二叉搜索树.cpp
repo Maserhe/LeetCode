@@ -16,8 +16,20 @@
  */
 class Solution {
 public:
+    TreeNode * mas(int arr[], int m){
+         
+        if (m == 0) return NULL;
+        int mid = m / 2;
+        //新建左边 和 右边 子树
+        TreeNode * root = new TreeNode(arr[mid]); 
+        root->left = mas(arr, mid);
+        root->right = mas(arr + mid + 1, m - mid - 1);
+        return root;
+    }
     TreeNode* sortedArrayToBST(vector<int>& nums) {
-        
+        if (nums.size() == 0) return NULL;
+        int * num = &nums[0]; //用 指针 
+        return mas(num, nums.size());
     }
 };
 // @lc code=end
