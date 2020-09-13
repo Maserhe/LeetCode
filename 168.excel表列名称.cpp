@@ -8,13 +8,13 @@
 class Solution {
 public:
     string convertToTitle(int n) {
-        // 转化为 26 进制。
-        string ans;
-        while (n){
-            int a = n % 26;
-            
-        }
-
+       
+       string ans;
+       while (n) {
+           ans = (char)( -- n % 26 + 'A') + ans; // -- n 是当前 权位 的 需求， 与高位 无关。 
+           n /= 26;
+       }
+       return ans;
     }
 };
 // @lc code=end
