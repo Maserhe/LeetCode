@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=590 lang=cpp
+ * @lc app=leetcode.cn id=589 lang=cpp
  *
- * [590] N叉树的后序遍历
+ * [589] N叉树的前序遍历
  */
 
 // @lc code=start
@@ -19,8 +19,7 @@ public:
     }
 
     Node(int _val, vector<Node*> _children) {
-        val
-        。。。 = _val;
+        val = _val;
         children = _children;
     }
 };
@@ -28,27 +27,27 @@ public:
 
 class Solution {
 public:
-    vector<int> postorder(Node* root) {
+    vector<int> preorder(Node* root) {
         if (!root) return {};
         stack<Node *> st;
-        vector<int> ans;
         st.push(root);
-        // 后序遍历， 左 右 中  反向遍历 ，中 右左，。
-        // 如果 我们能反向输出结果， 左右中，
-        while (st.size())
-        {
+
+        vector<int> ans;
+        while(st.size()){
+
             Node * t = st.top();
             st.pop();
 
             ans.push_back(t->val);
-
+            // 从后 往前 压栈。
             int n = t->children.size();
-            for (int i = 0; i < n; i ++ )
+            for (int i = n-1; i >= 0; i -- ){
                 st.push(t->children[i]);
+            }
             
         }
-        reverse(ans.begin(), ans.end());
         return ans;
+
     }
 };
 // @lc code=end
