@@ -17,7 +17,22 @@
 class Solution {
 public:
     TreeNode* searchBST(TreeNode* root, int val) {
-
+        if (!root) return NULL;
+        stack<TreeNode * > st;
+        st.push(root);
+        while (st.size())
+        {
+            TreeNode * t = st.top();
+            st.pop();
+            if (t->val == val) return t;
+            else
+            {
+                if (t->left) st.push(t->left);
+                if (t->right) st.push(t->right);
+            }
+            
+        }
+        return NULL;
     }
 };
 // @lc code=end
