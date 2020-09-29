@@ -28,9 +28,11 @@ public:
         vector<int> ans;
         s.push(root);
         while(!s.empty()){
+
             TreeNode* node = s.top();
             ans.push_back(node->val);
             s.pop();
+            
             if(node->left) s.push(node->left);
             if(node->right) s.push(node->right);
         }

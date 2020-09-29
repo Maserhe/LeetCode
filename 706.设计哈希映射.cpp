@@ -60,13 +60,14 @@ public:
 
 private:
     struct node{
+        
         int my_key;
         int my_val;
         node* next;
-
         node(int key, int val):my_key(key), my_val(val), next(nullptr){}
     };
     vector<node*> my_map;
+
     int size = 1000;
 };
 
