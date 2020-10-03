@@ -10,7 +10,7 @@ public:
     vector<int> twoSum(vector<int>& nums, int target) {
 
         // 方法一 ， 暴力解法
-    
+        
         vector<int> a;
         int size = nums.size();
         for(int i = 0; i < size ; i ++ )
@@ -20,7 +20,7 @@ public:
                     a.push_back(j);
                 }
         return a;
-    
+     
 
        // 方法二 ， 二分 ,我特么·傻逼了，这是没有排序的数。不能用方法二。
        /*
@@ -42,6 +42,7 @@ public:
        }
        return {-1, -1};
        */
+     
     }
 };
 // @lc code=end
