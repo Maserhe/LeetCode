@@ -8,7 +8,14 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
-        
+        // 就是一个 kmp 求 next 数组。
+        vector<int> next(s.size(), 0);
+        string ans;
+
+        next[0] = 1;
+        for (int i = 0; i < s.size(); i ++ ) {
+            
+        }
     }
 };
 // @lc code=end
