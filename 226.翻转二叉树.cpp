@@ -24,6 +24,7 @@ public:
         // 如果 左右 子树有一个存在的话。
         if (root->left || root->right) {
             tmp = root->left;
+            
             root->left = invertTree(root->right);
             root->right = invertTree(tmp);
         }
