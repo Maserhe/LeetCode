@@ -9,13 +9,12 @@ class Solution {
 public:
     int binaryGap(int n) {
 
-        int ans = 0;
-        int last = n & -n;
+        int ans = 0; 
+        int last = n & -n; 
         n -= last;
-
         while (n)
         {
-            int t = n & -n;
+            int t = n & -n; 
             ans = max(ans, (int)(log(t/last)/log(2)));
             n -= t;
             last = t;
