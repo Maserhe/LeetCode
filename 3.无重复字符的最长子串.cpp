@@ -8,18 +8,19 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-         int size = s.size();
-        vector<int> dict(256,-1);
-        int maxlen = 0; //存结果
+        
+        int n = s.size();
+        int ans = 0;
+        vector<int> bucket(256, -1);
         int start = -1;
-        for (int i=0;i<size;i++) {
-            if (dict[s[i]] > start) { //再次遇见相同字符
-                start = dict[s[i]];   //更新开始字符
-            }
-            dict[s[i]] = i;           //查表的形式存字符 
-            maxlen = max(maxlen, i - start);
+        for (int i = 0; i < n; i ++ ) {
+            // 重复就更新开始处下标。
+            if (bucket[s[i]] > start ) start = bucket[s[i]]; 
+            bucket[s[i]] = i;
+            ans = max (ans, bucket[s[i]] - start);
         }
-        return maxlen;
+
+        return ans;
     }
 };
 // @lc code=end
