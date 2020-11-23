@@ -17,15 +17,13 @@ public:
         int bucket[26] = {0};
         
         for (int i = 0; i < s.size(); i ++ ) {
-            bucket[t[i] - 'a'] ++;
+            bucket[t[i] - 'a'] ++ ;
             bucket[s[i] - 'a'] -- ;
         }
         for (int i = 0; i < 26; i ++ ){
             if (bucket[i] != 0) return false;
         }
-        
         return true;
-
     }
 };
 // @lc code=end
