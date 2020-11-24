@@ -18,28 +18,17 @@ class Solution {
 public:
     int countNodes(TreeNode* root) {
         if (!root) return 0;
-
-        // 层序遍历
         queue<TreeNode *> q;
-        int next = 0;
         q.push(root);
-        int count = 0;
-        
-        while(q.size()) { 
+        int ans = 0;
+        while (q.size()) {
             TreeNode * t = q.front();
             q.pop();
-
-            if (t->left) {
-                q.push(t->left);
-                next ++ ;
-            }
-            if (t->right) {
-                q.push(t->right);
-                next ++ ;
-            }
-            count ++ ;
+            ans ++ ;
+            if (t->left) q.push(t->left);
+            if (t->right) q.push(t->right);
         }
-        return count;
+        return ans;
     }
 };
 // @lc code=end
