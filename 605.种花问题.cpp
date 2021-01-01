@@ -15,9 +15,11 @@ public:
                 n -= ((num - 1)/ 2);
                 num = 0;
             }
-            else num ++ ;
+            else n
+            num ++ ;
         }
         if (num) n -= (num/ 2); // 末尾边界
+        
         if (n > 0) return false;
         else return true;
     }
