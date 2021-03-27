@@ -20,7 +20,6 @@ class Solution {
         // 虚拟头部
         ListNode vHead = new ListNode(0);
         vHead.next = head;
-
         ListNode last = head;
         ListNode temp = head.next;
         while (temp != null) {
