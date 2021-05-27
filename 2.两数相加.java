@@ -24,6 +24,7 @@ class Solution {
         ListNode temp1 = l1;
         ListNode temp2 = l2;
         int add = 0;
+
         while (temp1 != null || temp2 != null) {
             int a = temp1==null?0: temp1.val;
             int b = temp2==null?0: temp2.val;
@@ -35,10 +36,11 @@ class Solution {
             temp1 = temp1==null?null:temp1.next;
             temp2 = temp2==null?null:temp2.next;
         }
+        
         if (add != 0) {
             ansTemp.next = new ListNode(1);
         }
-        
+
         return ans.next;
     }
 }
