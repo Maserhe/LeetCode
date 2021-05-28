@@ -25,7 +25,7 @@ class Solution {
 
     public int getLen(int l, int r, String s) {
         int n = s.length();
-        while (l > 0 && r < n && s.charAt(l) == s.charAt(r)) {
+        while (l >= 0 && r < n && s.charAt(l) == s.charAt(r)) {
             l -- ;
             r ++ ;
         }
