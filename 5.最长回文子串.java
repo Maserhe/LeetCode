@@ -16,11 +16,7 @@ class Solution {
                 start = i - ((len - 1) >> 1);
             }
         }
-        String ans="";
-        for (int i = 0; i < max; i ++ ) {
-            ans += s.charAt(i + start);
-        }
-        return ans;
+        return s.substring(start, start + max);
     }
 
     public int getLen(int l, int r, String s) {
