@@ -12,7 +12,6 @@ class Solution {
         if (n == 0) return null;
         int m = matrix[0].length;
         List<Integer> ans = new ArrayList<>();
-
         int up = 0, down = n - 1, left = 0, right = m - 1;
 
         while (true) {
